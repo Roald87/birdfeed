@@ -4,7 +4,7 @@ import datetime
 from keypress import key_pressed
 
 picam2 = Picamera2()
-config = picam2.create_still_configuration(buffer_count=3)
+config = picam2.create_still_configuration(main={"size": (2048, 1536)})
 picam2.configure(config)
 picam2.start(show_preview=False)
 
