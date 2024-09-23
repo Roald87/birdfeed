@@ -21,9 +21,6 @@ while True:
         end_time = time.time()
         capture_time = end_time - start_time
         print(f"Image captured: {filename}, Time taken: {capture_time:.2f} seconds")
-
-        # Add a small delay to avoid capturing multiple images with one keypress
-        time.sleep(0.5)
     elif key_pressed("q"):
         print("Exiting...")
         break
