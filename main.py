@@ -4,12 +4,15 @@ import datetime
 from keypress import key_pressed
 
 picam2 = Picamera2()
-picam2.start()
+config = picam2.create_still_configuration(buffer_count=3)
+picam2.configure(config)
+picam2.start(show_preview=False)
 
 print("Press 'p' to capture a photo. Press 'q' to quit.")
 
 while True:
     if key_pressed("p"):
+        print("p pressed")
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H.%M.%S")
         filename = f"{timestamp}.jpg"
         picam2.capture_file(filename)
