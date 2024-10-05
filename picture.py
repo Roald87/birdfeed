@@ -5,6 +5,7 @@ from keypress import key_pressed
 
 import RPi.GPIO as GPIO
 
+print("Starting camera. This can take a few seconds.")
 picam2 = Picamera2()
 config = picam2.create_still_configuration(main={"size": (2048, 1536)})
 picam2.configure(config)
@@ -21,7 +22,7 @@ print("Press 'q' to quit.")
 while True:
     if GPIO.input(pir_sensor_bcm_pin):
         start_time = time.time()
-        print("p pressed")
+        print("Detected something! Taking a picture.")
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H.%M.%S")
         filename = f"{timestamp}.jpg"
         picam2.capture_file(filename)
