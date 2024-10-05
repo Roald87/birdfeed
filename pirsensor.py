@@ -13,7 +13,8 @@ if __name__ == "__main__":
 
     while True:
         if GPIO.input(pir_sensor_bcm_pin):
-            print(f"{datetime.now().strftime('%H:%M:s')} detected something")
+            time_str = datetime.now().strftime("%H:%M:%S.%f")[:-3]
+            print(f"{time_str} detected something")
         else:
             print("Nothing")
 
