@@ -29,6 +29,9 @@ while True:
         end_time = time.time()
         capture_time = end_time - start_time
         print(f"Image captured: {filename}, Time taken: {capture_time:.2f} seconds")
+        n = 5
+        time.sleep(n)
+        print(f"Sleeping for {n} s until watching for new movement.")
     elif key_pressed("q"):
         print("Exiting...")
         break
